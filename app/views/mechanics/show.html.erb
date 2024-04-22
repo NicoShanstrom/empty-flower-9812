@@ -14,10 +14,10 @@
 
 <h2>Add existing ride to <%=@mechanic.name%> workload</h2>
   <section class='addride'>
-    <%=form_with model: [@ride, @mechanic], local: true do |form|%>
-    <%= form.label :ride_id, "Ride Id:" %>
-    <%= form.text_field :ride_id %>
+    <%= form_with url: mechanic_rides_path(@mechanic), method: :post, data: {turbo: false} do |f| %>
+    <%= f.label :ride_id, "Ride Id:" %>
+    <%= f.text_field :ride_id %>
 
-    <%= form.submit "Add ride" %>
+    <%= f.submit "Add ride" %>
     <%end%>
   </section>

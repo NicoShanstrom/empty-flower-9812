@@ -11,6 +11,9 @@ RSpec.describe 'Amusement Park show' do
       @mech1 = @park1.mechanics.create!(name: "Nico", years_experience: 1)
       @mech2 = @park1.mechanics.create!(name: "Wolf", years_experience: 2)
       @mech3 = @park1.mechanics.create!(name: "Wolf", years_experience: 2)
+      # @mech1 = Mechanic.create!(name: "Nico", years_experience: 1)
+      # @mech2 = Mechanic.create!(name: "Wolf", years_experience: 2)
+      # @mech3 = Mechanic.create!(name: "Wolf", years_experience: 2)
   
       @mech1_ride1 = MechanicRide.create!(mechanic_id: @mech1.id, ride_id: @ride1.id)
       @mech1_ride2 = MechanicRide.create!(mechanic_id: @mech1.id, ride_id: @ride2.id)

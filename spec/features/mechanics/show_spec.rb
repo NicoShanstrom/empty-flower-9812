@@ -8,7 +8,7 @@ RSpec.describe 'Mechanic Show page' do
     @ride2 = @park1.rides.create!(name: "Chill", thrill_rating: 1, open: true)
     @ride3 = @park1.rides.create!(name: "Wow", thrill_rating: 15, open: true)
 
-    @mech1 = Mechanic.create!(name: "Nico", years_experience: 1)
+    @mech1 = @park1.mechanics.create!(name: "Nico", years_experience: 1)
     @mech1_ride1 = MechanicRide.create!(mechanic_id: @mech1.id, ride_id: @ride1.id)
     @mech1_ride2 = MechanicRide.create!(mechanic_id: @mech1.id, ride_id: @ride2.id)
   end
@@ -31,6 +31,7 @@ RSpec.describe 'Mechanic Show page' do
     it 'has a form to add a ride to a mechanics workload' do
       # When I go to a mechanic's show page
       visit mechanic_path(@mech1)
+      expect(page).to_not have_content(@ride3.name)
       # I see a form to add a ride to their workload
       # When I fill in that field with an id of an existing ride and click Submit
       within '.addride' do

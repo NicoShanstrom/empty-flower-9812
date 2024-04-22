@@ -4,9 +4,9 @@
 <h2>Park Mechanics</h2>
 <section class='mechanics'>
   <ol>
-    <% @amusement_park.unique_name.each do |mechanic| %>
+    <% @amusement_park.unique_name.each do |mechanic_name| %>
     <li>
-      <h3>Mechanic name: <%= mechanic %></h3>
+      <h3>Mechanic name: <%= mechanic_name %></h3>
     </li>
     <%end%>
   </ol>
